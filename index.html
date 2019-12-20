@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <p1>Insert addresses here separated by a semi-colon:</p1>
+        <p2>
+            <textarea id="addressIn" rows=6 cols=32 placeholder="Put addresses here"></textarea>
+            <button id="buttonTest" type="button" onclick="startProcess()">Press to Update</button>
+            <script type="text/javascript" id="editAddresses">
+                var addresses;
+                var text;
+                function changeAddressArr() {
+                    addresses = [];
+                    text = "";
+                    addresses = document.getElementById("addressIn").value.split("; ");
+                    //document.getElementById("test").innerHTML += " and done";
+                    updateMap();
+                }
+
+                function startProcess() {
+                  changeAddressArr();
+                  //google.maps.event.addDomListener(window, "load", changeAddressArr);
+                  document.getElementById("test").innerHTML = "online";
+                }
+            </script>
+        </p2>
+
+        <div id="map", style="width:1200px; height:500px;"></div>
+        <script src="index.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaY9y7SVL2A42wBBUhEBv1z_OuFs7hbMw&callback=initMap"
+        async defer></script>
+
+        <p3 id="test">yeets</p3>
+    </body>
+</html>
